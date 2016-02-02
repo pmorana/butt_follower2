@@ -1,19 +1,24 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Alert -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Alert %></h1>
+</div>
 
-<p>
-  <strong>Event:</strong>
-  <%= @alert.event %>
-</p>
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:alert_time) %></dt>
+      <dd><pre class="prettyprint"><%= @alert.alert_time %></pre></dd>
+  </dl>
+</div>
 
-<p>
-  <strong>User:</strong>
-  <%= @alert.user %>
-</p>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              alerts_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_alert_path(@alert), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              alert_path(@alert),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
 
-<p>
-  <strong>Alert time:</strong>
-  <%= @alert.alert_time %>
-</p>
-
-<%= link_to 'Edit', edit_alert_path(@alert) %> |
-<%= link_to 'Back', alerts_path %>
