@@ -53,6 +53,7 @@ gem 'rails_config'
 
 group :development do
   gem 'better_errors'
+  gem 'faker',        '1.4.2'
 end
 
 group :development, :test do

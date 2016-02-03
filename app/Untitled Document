@@ -1,0 +1,3 @@
+nested the resources to create association between subscriptions and events.
+
+Attempting to add the events form to the subscriptions page so it can inherit the ID of the subscription when the event is created because they belong together.

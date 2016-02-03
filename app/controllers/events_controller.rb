@@ -10,11 +10,12 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+    @event = Event.find(params[:id])
   end
 
   # GET /events/new
   def new
-    @event = Event.new
+    @event = @subscription.events.new
   end
 
   # GET /events/1/edit
@@ -24,11 +25,15 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
-    @event = Event.new(event_params)
+    @subscription = Subscription.find(params[:subscription_id])
+    @event = @subscription.events.create(event_params)
+    
+    #attempting to pass subscription ID to the event
+    #@event.subscription_id = @subscription_id
 
     respond_to do |format|
-      if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+      if @subscription.save
+        format.html { redirect_to @subscription, notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new }
