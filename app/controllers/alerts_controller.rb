@@ -14,11 +14,11 @@ class AlertsController < ApplicationController
   # GET /alerts/1
   # GET /alerts/1.json
   def show
+    @alert = Alert.find(params[:id])
   end
 
   # GET /alerts/new
   def new
-    @alert = Alert.new
   end
 
   # GET /alerts/1/edit
@@ -28,8 +28,8 @@ class AlertsController < ApplicationController
   # POST /alerts
   # POST /alerts.json
   def create
-    @alert = Alert.new(alert_params)
-    @alert.user = current_user
+    @event = Event.find(params[:event_id])
+    @alert = @event.alerts.create(alert_params)
 
     respond_to do |format|
       if @alert.save
