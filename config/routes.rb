@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   get 'landings/index'
 
-  resources :alerts
+  #when removed, event_alerts_path doesn't work
+  #resources :alerts
 
   resources :subscriptions do
     resources :events

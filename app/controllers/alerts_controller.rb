@@ -8,12 +8,14 @@ class AlertsController < ApplicationController
   # GET /alerts
   # GET /alerts.json
   def index
-    @alerts = Alert.all
+    #@event = Event.find_by(params[:event_id])
+    @alert = Alert.all
   end
 
   # GET /alerts/1
   # GET /alerts/1.json
   def show
+    @event = Event.find_by(params[:event_id])
     @alert = Alert.find(params[:id])
   end
 
@@ -33,7 +35,7 @@ class AlertsController < ApplicationController
 
     respond_to do |format|
       if @alert.save
-        format.html { redirect_to @alert, notice: 'Alert was successfully created.' }
+        format.html { redirect_to @event, notice: 'Alert was successfully created.' }
         format.json { render :show, status: :created, location: @alert }
       else
         format.html { render :new }
@@ -61,7 +63,7 @@ class AlertsController < ApplicationController
   def destroy
     @alert.destroy
     respond_to do |format|
-      format.html { redirect_to alerts_url, notice: 'Alert was successfully destroyed.' }
+      format.html { redirect_to events_path, notice: 'Alert was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

@@ -11,3 +11,10 @@
 </div>
 
 <div> <%=render 'alerts/form' %> </div>
+
+<div>
+<h2>Alerts</h2>
+<p><% @event.alerts[0..-2].each do |alert| %></p>
+<p><%=link_to alert.id, [@event, alert]%></p>
+<%end%>
+</div>
