@@ -1,3 +1,4 @@
+<!--I feel that the nested resource form_for should take [@subscription, @event], but this never works -->
 <%= form_for ([@subscription, @subscription.events.build]), :html => { :class => 'form-horizontal form-model' } do |f| %>  
   <div class="form-group">
     <%= f.label :event_name, :class => 'control-label col-md-2' %>
