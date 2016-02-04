@@ -26,7 +26,7 @@
 
 <div>
 <h2>Events</h2>
-<p><% @subscription.events.each do |event| %></p>
+<p><% @subscription.events[0..-2].each do |event| %></p>
 <p><%=link_to event.event_name, [@subscription, event]%></p>
 <%end%>
 </div>
