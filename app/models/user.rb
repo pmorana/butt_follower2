@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  has_many :user_sub
+  has_many :user_sub, dependent: :destroy
   has_many :subscriptions
   has_many :subscriptions, through: :user_sub
   has_many :events, through: :subscriptions
@@ -45,6 +45,21 @@ class User < ActiveRecord::Base
     end
   end
 
+  #ch12 listing 12.10
+  #subscribes to a subscription
+  def subscribe(example_subscription)
+    user_subs.create(subscription_id: example_subscription.id)
+  end
+
+  #unsubscribes a user
+  def unsubscribe(example_subscription)
+    user_subs.find_by(subscription_id: example_subscription.id).destroy
+  end
+
+  #returns true if the current user is subscribed to a sub
+  def subscribed?(example_subscription)
+    subscriptions.include?(example_subscription)
+  end
 
   devise authentication_keys: [:login]
 end

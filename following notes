@@ -1,0 +1,23 @@
+A user should be able to follow a subscription.
+
+this should be accomplished through the has many through relationship
+
+read the tutorial again and figure out how it was accomplished.
+
+pretty sure the db is correct, just need to implement the controls for it.
+
+User is follower, subscription is follwoed
+subscription.followers is an array of users who follow it
+
+user.following array of all subscriptions followed by a user
+
+follower_id = user_id
+followed_id = subscription_id
+
+user_sub.user should return the follower
+user_sub.subcription should return the subscription
+user.user_sub.create should create a relationship associated with a user
+
+a user has many subscriptions through user_sub
+user.subscriptions.include?(example_subscription)
+user.subscription.find(example_subscription)
