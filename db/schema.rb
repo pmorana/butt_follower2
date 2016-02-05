@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160202233759) do
+ActiveRecord::Schema.define(version: 20160205193358) do
 
   create_table "alerts", force: true do |t|
     t.integer  "event_id"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20160202233759) do
   end
 
   add_index "user_subs", ["subscription_id"], name: "index_user_subs_on_subscription_id"
+  add_index "user_subs", ["user_id", "subscription_id"], name: "index_user_subs_on_user_id_and_subscription_id", unique: true
   add_index "user_subs", ["user_id"], name: "index_user_subs_on_user_id"
 
   create_table "users", force: true do |t|
