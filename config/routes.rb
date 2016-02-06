@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   resources :events do
     resources :alerts
   end
+
+  resources :user_subs, only: [:create, :destroy]
   
 
   devise_for :users, controllers: {registrations: "users/registrations", sessions: "users/sessions", passwords: "users/passwords", omniauth_callbacks: "users/omniauth_callbacks"}, skip: [:sessions, :registrations]

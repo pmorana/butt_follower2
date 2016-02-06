@@ -21,3 +21,10 @@ user.user_sub.create should create a relationship associated with a user
 a user has many subscriptions through user_sub
 user.subscriptions.include?(example_subscription)
 user.subscription.find(example_subscription)
+
+to manipulate the relationship, need subscribe and unsubscribe utility methods for user.subscribe(example_subscription)
+
+need a user page to display their subscriptions (also can link to the account page)
+
+add a button to follow and unfollow a subscription, add to subscriptions show page
+

@@ -1,0 +1,21 @@
+class UserSubsController < ApplicationController
+	def index
+	end
+
+	def show
+
+	end
+
+	def create
+		sub = Subscription.find(params[:subscription_id])
+		current_user.subscribe(sub)
+		redirect_to root_path
+	end
+
+	def destroy
+		#needs to be .subscription at end
+		sub = UserSub.find(params[:id]).subscription
+		current_user.unsubscribe(sub)
+		redirect_to root_path
+	end
+end

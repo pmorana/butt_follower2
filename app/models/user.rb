@@ -58,7 +58,11 @@ class User < ActiveRecord::Base
 
   #returns true if the current user is subscribed to a sub
   def subscribed?(example_subscription)
-    subscriptions.include?(example_subscription)
+    if user_subs.find_by(subscription_id: example_subscription.id)
+      return true
+    else
+      return false
+    end
   end
 
   devise authentication_keys: [:login]
