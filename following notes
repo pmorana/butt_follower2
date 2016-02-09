@@ -28,3 +28,8 @@ need a user page to display their subscriptions (also can link to the account pa
 
 add a button to follow and unfollow a subscription, add to subscriptions show page
 
+redirect to subscriptions after unsubscribe
+redirect to current subscription after subscribe
+
+create a user page to display subscriptions, allow for removal from that page?
+
