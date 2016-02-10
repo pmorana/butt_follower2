@@ -11,7 +11,7 @@ class UserSubsController < ApplicationController
 		redirect_to subscription_path(sub)
 	end
 
-	def destroy(redirect)
+	def destroy
 		#needs to be .subscription at end
 		sub = UserSub.find(params[:id]).subscription
 		current_user.unsubscribe(sub)
