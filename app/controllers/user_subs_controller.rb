@@ -11,11 +11,12 @@ class UserSubsController < ApplicationController
 		redirect_to subscription_path(sub)
 	end
 
-	def destroy
+	def destroy(redirect)
 		#needs to be .subscription at end
 		sub = UserSub.find(params[:id]).subscription
 		current_user.unsubscribe(sub)
-		#subscriptions plural because we want all
-		redirect_to subscriptions_path
+		#subscriptions_path (plural because we want all)
+		#redirect to profile page if the destroy call came from there.
+		redirect_to(request.referer.include?("/users/#{current_user.id}") ? :back : subscriptions_path)
 	end
 end

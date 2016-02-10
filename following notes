@@ -39,3 +39,8 @@ populate subscriptions and a unsub button.
 only visible if logged in
 
 get the ids of the shows a user is subscribed to, then run those ids against the subscriptions database and output the names as a list
+
+Add links to the subscriptions within someone's profile page
+
+moderator: person who created the content gives others the ability to edit and delete, including comments associated with it.
+
