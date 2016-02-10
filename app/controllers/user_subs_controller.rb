@@ -3,7 +3,6 @@ class UserSubsController < ApplicationController
 	end
 
 	def show
-
 	end
 
 	def create
@@ -16,6 +15,7 @@ class UserSubsController < ApplicationController
 		#needs to be .subscription at end
 		sub = UserSub.find(params[:id]).subscription
 		current_user.unsubscribe(sub)
+		#subscriptions plural because we want all
 		redirect_to subscriptions_path
 	end
 end

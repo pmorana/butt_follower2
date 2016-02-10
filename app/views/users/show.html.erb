@@ -1,0 +1,22 @@
+<div class="page-header">
+  <h1><%=t '.title', :default => @user.username %>'s Subscriptions</h1>
+  
+  <table class="table table-striped">
+  	<tbody>
+  		<% @subscribed.each do |sub| %>
+  		<tr>
+  			<td><%= @subs.find_by(id:sub.subscription_id).subscription_name %></td>
+        <td><%= form_for(current_user.user_subs.find_by(subscription_id: sub.subscription_id),
+             html: { method: :delete }) do |f| %>
+            <%= f.submit "Unsubscribe", class: "btn" %>
+            <p></p>
+        <% end %></td>
+  			
+  		</tr>
+  		<% end %>
+ 		</tbody>
+	</table>
+ 
+
+  
+</div>

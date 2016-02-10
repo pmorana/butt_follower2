@@ -31,5 +31,11 @@ add a button to follow and unfollow a subscription, add to subscriptions show pa
 redirect to subscriptions after unsubscribe
 redirect to current subscription after subscribe
 
-create a user page to display subscriptions, allow for removal from that page?
+create a user page to display subscriptions, allow for removal from that page? (how did the hartl tut do this)
 
+Create routes for user show page
+create view for users
+populate subscriptions and a unsub button.
+only visible if logged in
+
+get the ids of the shows a user is subscribed to, then run those ids against the subscriptions database and output the names as a list

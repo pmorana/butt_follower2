@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   #when removed, event_alerts_path doesn't work
   #resources :alerts
+  resources :users, only: [:show]
 
   resources :subscriptions do
     resources :events
