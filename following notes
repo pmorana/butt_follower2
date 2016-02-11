@@ -59,3 +59,33 @@ I am trying to create up/down voted comments within rails.  The comments will be
 build a regular comment system with a model and controller, add acts_as_votable and something else to thread the comments?  or has_threaded_comments
 
 try based on what mackenzie did...
+associations:
+
+user has_many comments
+event has_many comments
+comments belong_to user
+comments belong_to event
+
+Use topic instead of title/url reddit combo
+acts_as_votable in topic
+
+routes:
+resources :topics do
+	member do
+		put "like", to: "topics#upvote"
+		put "dislike" to: "topics#downvote"
+	end
+end
+
+topics controller
+
+upvote and downvote methods
+def upvote
+@topic = link.find(params[:id])
+link.upvote_by current_user
+redirect_to :back
+end
+
+views - steal from repo
+
+comments: 53 min
