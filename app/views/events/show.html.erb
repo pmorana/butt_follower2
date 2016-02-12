@@ -14,9 +14,22 @@
 
 <div>
 <h2>Chats</h2>
-<p><% @user.topics[0..-2].each do |topic| %></p>
-<p><%=@user.username%>: <%=topic.body%></p>
-<%end%>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th><%= model_class.human_attribute_name(:username) %></th>
+			<th><%= model_class.human_attribute_name(:body) %></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @user.topics[0..-2].each do |topic| %>
+		<tr>
+			<td><%=@user.username%>: </td>
+			<td><%=topic.body%></td>
+		</tr>
+	<%end%>
+	</tbody>
+</table>
 </div>
 
 

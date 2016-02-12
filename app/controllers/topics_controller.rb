@@ -7,7 +7,7 @@ class TopicsController < ApplicationController
 	def show
 		@user = current_user
 		#@event = Event.find_by(params[:event_id])
-		@topic = Topic.find(params[:id])
+		#@topic = Topic.find(params[:id])
 	end
 
 	def new
