@@ -61,10 +61,13 @@ build a regular comment system with a model and controller, add acts_as_votable 
 try based on what mackenzie did...
 associations:
 
-user has_many comments
-event has_many comments
-comments belong_to user
-comments belong_to event
+-user has_many topics
+-event has_many topics
+-topics belongs_to user
+-topics belongs_to event
+-topics has_many comments
+comments belongs_to topics
+comments belongs_to user
 
 Use topic instead of title/url reddit combo
 acts_as_votable in topic
@@ -89,3 +92,7 @@ end
 views - steal from repo
 
 comments: 53 min
+
+rails g model comments user_id:integer event_id:integer user:references event:references
+
+use scaffold for comments?

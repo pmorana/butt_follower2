@@ -1,0 +1,14 @@
+<%= form_for ([@user, @user.topics.build]) do |f| %>
+  
+    
+
+  <div class="form-group">
+    <%= f.label :body %><br>
+    <%= f.text_field :body, class: "form-control" %>
+  </div>
+  <br>
+  <div class="form-group">
+    <%= f.submit "Submit", class: "btn btn-lg btn-primary" %>
+  </div>
+
+<% end %>

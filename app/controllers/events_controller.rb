@@ -10,6 +10,8 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+    @user = current_user
+    @topic = Topic.find_by(params[:topic_id])
     @event = Event.find(params[:id])
   end
 
@@ -25,6 +27,7 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
+    #@user = current_user
     @subscription = Subscription.find(params[:subscription_id])
     @event = @subscription.events.create(event_params)
     

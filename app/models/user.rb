@@ -1,18 +1,21 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  has_many :user_sub, dependent: :destroy
+  has_many :user_subs, dependent: :destroy
   has_many :subscriptions
-  has_many :subscriptions, through: :user_sub
+  has_many :subscriptions, through: :user_subs
   has_many :events, through: :subscriptions
   has_many :alerts
+  has_many :topics
+  #not ready yet
+  #has_many :comments
   devise :database_authenticatable, :registerable,
         :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable, omniauth_providers: [:facebook]
 
   #->Prelang (user_login/devise)
-  has_many :subscriptions
-  has_many :user_subs
+  #has_many :subscriptions
+  #has_many :user_subs
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.where(provider: auth.provider, uid: auth.uid).first
 

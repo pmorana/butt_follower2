@@ -10,6 +10,16 @@
   </dl>
 </div>
 
+<div> <%= render 'topics/form' %></div
+
+<div>
+<h2>Chats</h2>
+<p><% @user.topics[0..-2].each do |topic| %></p>
+<p><%=@user.username%>: <%=topic.body%></p>
+<%end%>
+</div>
+
+
 <div> <%=render 'alerts/form' %> </div>
 
 <div>

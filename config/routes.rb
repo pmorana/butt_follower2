@@ -5,6 +5,15 @@ Rails.application.routes.draw do
   #resources :alerts
   resources :users, only: [:show]
 
+  resources :users do
+    resources :topics do
+      member do
+        put "like", to: "topics#upvote"
+        put "dislike", to: "topics#downvote"
+      end
+    end
+  end
+
   resources :subscriptions do
     resources :events
   end
