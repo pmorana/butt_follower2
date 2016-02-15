@@ -96,3 +96,6 @@ comments: 53 min
 rails g model comments user_id:integer event_id:integer user:references event:references
 
 use scaffold for comments?
+
+Add comments nested in topics
+View topics by popularity, sort in views?
