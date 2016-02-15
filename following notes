@@ -99,3 +99,9 @@ use scaffold for comments?
 
 Add comments nested in topics
 View topics by popularity, sort in views?
+	http://stackoverflow.com/questions/19103738/acts-as-votable-ordering-by-upvotes
+
+
+Shit doesn't work for other users, user page with subscriptions breaks because the first argument in the form is nil (somehow)
+
+also can't see chats created by other users

@@ -2,9 +2,9 @@ class UsersController < ApplicationController
 
 	def show
 		#finds user based on the url parameters
-		@user = User.find(params[:id])
-		#grabs all the usersubs in that db
-		@subscribed = UserSub.all
+		#@user = User.find(params[:id])
+		#grabs all the usersubs for a given user
+		@subscribed = current_user.user_subs.all
 		#grabs all the subscriptions in existence
 		@subs = Subscription.all
 
