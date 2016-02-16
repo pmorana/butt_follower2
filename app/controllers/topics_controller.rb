@@ -6,6 +6,7 @@ class TopicsController < ApplicationController
 
 	def show
 		@user = current_user
+    @topics = Topic.all
 		#@event = Event.find_by(params[:event_id])
 		#@topic = Topic.find(params[:id])
 	end
@@ -16,8 +17,9 @@ class TopicsController < ApplicationController
 
 	def create
 		@event = Event.find_by(params[:event_id])
-		@user = current_user
 		@topic = @user.topics.build(topic_params)
+    @user = current_user
+		
 
 		   respond_to do |format|
       if @topic.save

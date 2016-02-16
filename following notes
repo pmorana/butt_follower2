@@ -103,5 +103,9 @@ View topics by popularity, sort in views?
 
 
 Shit doesn't work for other users, user page with subscriptions breaks because the first argument in the form is nil (somehow)
+fixed, scoped to the user
 
 also can't see chats created by other users
+
+push notifications in native app
+how to build the native apps?
