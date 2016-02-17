@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   #resources :alerts
   resources :users, only: [:show]
 
-  resources :users do
+  resources :events do
     resources :topics do
       member do
         put "like", to: "topics#upvote"

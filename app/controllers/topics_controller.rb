@@ -7,21 +7,20 @@ class TopicsController < ApplicationController
 	def show
 		@user = current_user
     @topics = Topic.all
-		#@event = Event.find_by(params[:event_id])
+		@event = Event.find_by(params[:event_id])
 		#@topic = Topic.find(params[:id])
 	end
 
 	def new
-		@topic = @user.topics.build
+		@topic = @event.topics.build
 	end
-
+  
 	def create
 		@event = Event.find_by(params[:event_id])
-		@topic = @user.topics.build(topic_params)
-    @user = current_user
-		
+		@topic = @event.topics.build(topic_params)
+    #@user = current_user
 
-		   respond_to do |format|
+		respond_to do |format|
       if @topic.save
         format.html { redirect_to @event, notice: 'Topic was successfully created.' }
         format.json { render :show, status: :created, location: @topic }
@@ -31,6 +30,7 @@ class TopicsController < ApplicationController
       end
     end
   end
+  
 
   def destroy
     @topic = Topic.find(params[:id])
@@ -56,6 +56,6 @@ class TopicsController < ApplicationController
 
   	private
   	 def topic_params
-      	params.require(:topic).permit(:body)
+      	params.require(:topic).permit(:body, :user_id, :event_id)
     	end
 end

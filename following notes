@@ -105,7 +105,12 @@ View topics by popularity, sort in views?
 Shit doesn't work for other users, user page with subscriptions breaks because the first argument in the form is nil (somehow)
 fixed, scoped to the user
 
-also can't see chats created by other users
-
 push notifications in native app
 how to build the native apps?
+
+
+also can't see chats created by other users
+Switched the model to have events as the parent, but everything is nill, so it doesn't have what it needs on creation.
+
+It needs to grab the user_id on creation.  I'm not sure where to pass that in.  I looked at the relationship model where it passes from the controller to the model and back which grabs the user_id....
+-passed the user_id as a hidden field, maybe not the best way but it works.

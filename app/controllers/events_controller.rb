@@ -11,8 +11,10 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
     @user = current_user
-    @topic = Topic.find_by(params[:topic_id])
+    @topics = Topic.all
     @event = Event.find(params[:id])
+    @topic = @event.topics.find_by(params[:topic_id])
+    
   end
 
   # GET /events/new
